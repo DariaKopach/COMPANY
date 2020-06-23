@@ -60,22 +60,15 @@ public class ICompanyServiceImpl implements ICompanyService {
 
     @Override
     public long getEmployeeCountForCompanyAndChildren(Company company, List<Company> companies) {
-        return company.getEmployeesCount() +
-                companies
-                        .stream()
-                        .mapToInt(Company::getEmployeesCount)
-                        .sum();
+        long employeesNumber = company.getEmployeesCount();
+        for (int i = 0; i < companies.size(); i++) {
+            if (companies.get(i).getParent() == company){
+                employeesNumber += getEmployeeCountForCompanyAndChildren(companies.get(i),companies);
+            }
+        }
+        return employeesNumber;
 
     }
-
-    public String toString(Company company) {
-        if (company != null)
-            return "Company {" +
-                    "parent = " + company.getParent() +
-                    "employeesCount = " + company.getEmployeesCount() +
-                    "}";
-        return "Object is null";
-    }
-    
 }
+
 

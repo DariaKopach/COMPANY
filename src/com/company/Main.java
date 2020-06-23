@@ -54,7 +54,9 @@ public class Main {
 
         ICompanyServiceImpl service = new ICompanyServiceImpl();
 
-        List<Company> companies = new ArrayList<>();
+        // create the list of companies and add to it items according our task
+
+        List<Company> listOfCompanies = new ArrayList<>();
         Company chief = new Company(null, 3);
         Company lawyer = new Company(chief, 4);
         Company developer = new Company(chief, 5);
@@ -64,6 +66,9 @@ public class Main {
         Company devOps = new Company(backEnd, 5);
         Company accounting = new Company(null, 4);
 
+
+        // print out on console the parent company
+
         System.out.println(service.getTopLevelParent(chief));
         System.out.println(service.getTopLevelParent(lawyer));
         System.out.println(service.getTopLevelParent(developer));
@@ -72,6 +77,25 @@ public class Main {
         System.out.println(service.getTopLevelParent(design));
         System.out.println(service.getTopLevelParent(devOps));
         System.out.println(service.getTopLevelParent(accounting));
+
+        // print out on console the number of employees
+
+        System.out.println(service.getEmployeeCountForCompanyAndChildren(chief,
+                listOfCompanies));
+        System.out.println(service.getEmployeeCountForCompanyAndChildren(lawyer,
+                listOfCompanies));
+        System.out.println(service.getEmployeeCountForCompanyAndChildren(developer,
+                listOfCompanies));
+        System.out.println(service.getEmployeeCountForCompanyAndChildren(frontEnd,
+                listOfCompanies));
+        System.out.println(service.getEmployeeCountForCompanyAndChildren(backEnd,
+                listOfCompanies));
+        System.out.println(service.getEmployeeCountForCompanyAndChildren(design,
+                listOfCompanies));
+        System.out.println(service.getEmployeeCountForCompanyAndChildren(devOps,
+                listOfCompanies));
+        System.out.println(service.getEmployeeCountForCompanyAndChildren(accounting,
+                listOfCompanies));
 
     }
 }
