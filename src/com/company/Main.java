@@ -1,60 +1,52 @@
 package com.company;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Classname: Main
  *
- * @version 23.06.2020
  * @author Kopach Daria
- *
- *
- *
+ * <p>
+ * <p>
+ * <p>
  * The following text is a real  approbation task for
  * Java Juniors in the EPAM company. No more explanation.
- *
+ * <p>
  * IMPLEMENT THE FOLLOWING INTERFACE.
- *
+ * <p>
  * public class Company {
  * // parent for this company nullable, when there is no parent for this company
  * private Company parent;
  * private long employeesCount;
  * }
- *
+ * <p>
  * public interface ICompanyService {
  * /**
- *  * @param child - company for which we are searching the top level parent
- *  *                  (parent of parent of ...)
- *  * @return top level paren
- *
+ * * @param child - company for which we are searching the top level parent
+ * *                  (parent of parent of ...)
+ * * @return top level paren
+ * <p>
  * Company getTopLevelParent(Company child);
- *
- *
- *
- *  * @param company  - company for which we are searching the count of employees
- *  * (count of this company employees +
- *  * count employees of all children and their children employees )
- *  * @param companies  - list of all available companies
- *  *
- *  * @return count of employees
- *  *
- *  *long getEmployeeCountForCompanyAndChildren(Company company,List<Company> companies);
- *
- *
- *
- *
- *
- *
- *
- *
-**/
+ * <p>
+ * <p>
+ * <p>
+ * * @param company  - company for which we are searching the count of employees
+ * * (count of this company employees +
+ * * count employees of all children and their children employees )
+ * * @param companies  - list of all available companies
+ * *
+ * * @return count of employees
+ * *
+ * *long getEmployeeCountForCompanyAndChildren(Company company,List<Company> companies);
+ * @version 23.06.2020
+ **/
 
 public class Main {
 
     /**
      * Main method to execute
+     *
      * @param args String params.
      */
 
@@ -62,15 +54,15 @@ public class Main {
 
         ICompanyServiceImpl service = new ICompanyServiceImpl();
 
-        List <Company> companies = new ArrayList<>();
-        Company chief = new Company( null, 3);
-        Company lawyer = new Company( chief, 4);
-        Company developer = new Company( chief, 5);
-        Company frontEnd = new Company( developer, 6);
-        Company backEnd = new Company( developer, 7);
-        Company design = new Company( frontEnd, 3);
-        Company devOps = new Company( backEnd, 5);
-        Company accounting = new Company( null, 4);
+        List<Company> companies = new ArrayList<>();
+        Company chief = new Company(null, 3);
+        Company lawyer = new Company(chief, 4);
+        Company developer = new Company(chief, 5);
+        Company frontEnd = new Company(developer, 6);
+        Company backEnd = new Company(developer, 7);
+        Company design = new Company(frontEnd, 3);
+        Company devOps = new Company(backEnd, 5);
+        Company accounting = new Company(null, 4);
 
         System.out.println(service.getTopLevelParent(chief));
         System.out.println(service.getTopLevelParent(lawyer));
